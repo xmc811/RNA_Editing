@@ -4,7 +4,7 @@ setwd("/Users/mingchuxu/Documents/bioinformatics/RNA-edting")
 library(tibble)
 library(reshape2)
 
-db_raw <- read.table("real_table", sep = "\t", stringsAsFactors = F, header = T)
+db_raw <- read.table("db_table", sep = "\t", stringsAsFactors = F, header = T)
 decoy_raw <- read.table("decoy_table", sep = "\t", stringsAsFactors = F, header = T)
 
 
@@ -14,7 +14,8 @@ rm(db_raw)
 decoy_edit <- dcast(decoy_raw, Region.Position ~ Sample)
 rm(decoy_raw)
 
-#matrix ready for analysis
+# read data from rna-editing analysis
+# matrix ready for analysis
 
 
 db_edit_frac <- c()
@@ -72,7 +73,7 @@ for (i in 1:length(f_tier)) {
 
 ratio <- 1 - f_decoy_stat/f_stat
 
-fraction_data <- data.frame(Fraction = f_tier, Real = f_stat, Decoy = f_decoy_stat, Ratio=ratio)
+fraction_data <- data.frame(Fraction = f_tier, Datbase = f_stat, Decoy = f_decoy_stat, Ratio=ratio)
 
 #fraction_data <- melt(fraction_data, id="Fraction")
 
