@@ -4,8 +4,8 @@ setwd("/Users/mingchuxu/Documents/bioinformatics/RNA-edting")
 library(tibble)
 library(reshape2)
 
-db_raw <- read.table("db_table", sep = "\t", stringsAsFactors = F, header = T)
-decoy_raw <- read.table("decoy_table", sep = "\t", stringsAsFactors = F, header = T)
+db_raw <- read.table("db_table.Data", sep = "\t", stringsAsFactors = F, header = T)
+decoy_raw <- read.table("decoy_table.Data", sep = "\t", stringsAsFactors = F, header = T)
 
 
 db_edit <- dcast(db_raw, Region.Position ~ Sample)
